@@ -1,0 +1,8 @@
+{"ts": "2025-09-10T22:01:06.733156", "sql": "DELETE FROM users;", "label": "benign", "q_values": [99.99923706054688, 98.00509643554688], "reward_est": -0.9798576063491242}
+{"ts": "2025-09-10T22:05:16.172401", "sql": "DELETE FROM users;", "label": "risky", "q_values": [99.99923706054688, 98.00509643554688], "reward_est": -0.9798576063491242, "rule_hit": true}
+{"ts": "2025-09-10T22:05:24.048844", "sql": "UPDATE t SET a=1;", "label": "risky", "q_values": [98.63453674316406, 96.65060424804688], "reward_est": -0.9796816852025898, "rule_hit": true}
+{"ts": "2025-09-10T22:05:29.617740", "sql": "UPDATE t SET a=1 WHERE id=1;", "label": "benign", "q_values": [99.02395629882812, 97.03679656982422], "reward_est": -0.9797291432395984, "rule_hit": false}
+{"ts": "2025-09-14T12:02:39.504497", "sql": "DELETE FROM users;", "label": "risky", "q_values": [102.69208526611328, 100.74710845947266], "reward_est": -0.9599267244338989, "rule_hit": true}
+{"ts": "2025-09-14T12:03:45.738004", "sql": "UPDATE t SET a=1;", "label": "risky", "q_values": [98.9151611328125, 96.92837524414062], "reward_est": -0.963081955909729, "rule_hit": true}
+{"ts": "2025-09-14T12:03:52.187431", "sql": "UPDATE t SET a=1 WHERE id=1;", "label": "benign", "q_values": [100.4217300415039, 98.42977142333984], "reward_est": -0.9634550213813782, "rule_hit": false}
+{"ts": "2025-09-14T12:04:00.525899", "sql": "DROP TABLE users;", "label": "risky", "q_values": [96.44279479980469, 94.47842407226562], "reward_est": -0.9614219069480896, "rule_hit": true}

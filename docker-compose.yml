@@ -1,0 +1,42 @@
+version: "3.8"
+
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.0
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - ES_JAVA_OPTS=-Xms1g -Xmx1g
+      - TZ=Asia/Ho_Chi_Minh
+    ports:
+      - "9200:9200"
+    volumes:
+      - es_data:/usr/share/elasticsearch/data
+
+  logstash:
+    image: docker.elastic.co/logstash/logstash:7.17.0
+    container_name: logstash
+    depends_on:
+      - elasticsearch
+    environment:
+      - TZ=Asia/Ho_Chi_Minh
+    volumes:
+      - ./logstash/pipeline:/usr/share/logstash/pipeline:ro
+      - ./logs:/usr/share/logstash/logs:ro
+    ports:
+      - "5044:5044"
+      - "9600:9600"
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:7.17.0
+    container_name: kibana
+    depends_on:
+      - elasticsearch
+    environment:
+      - ELASTICSEARCH_HOSTS=["http://elasticsearch:9200"]
+      - TZ=Asia/Ho_Chi_Minh
+    ports:
+      - "5601:5601"
+
+volumes:
+  es_data:
